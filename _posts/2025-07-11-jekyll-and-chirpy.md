@@ -25,21 +25,13 @@ Now, deploying on GitHub Pages was also very easy! Simply enablign GitHub Action
 
 ## A slight issue
 
-I wanted the host my blog at https://username.github.io/blog, which I was able to do by setting the ```baseurl``` field to "blog". Deployment on GitHub Pages worked great, but when locally deploying the CSS would fail to render because of the change in folder path. So when serving the site, the command will look slightly different:
+I wanted the host my blog at https://username.github.io/blog. I was able to do this for both local and GitHub pages deployment, although I ran into a ton of issues before resolving it! You have to be very precise with the fields `url` and `baseurl`. In `_config.yml`, I had:
+```
+url: "https://nleobandung.github.io"
+baseurl: "/blog"
+```
 
-```
-bundle exec jekyll serve --baseurl=""
-```
-
-Alternatively, if one has multiple differences between local and deployment configs, you can list a secondary config file that will override some variables.
-
-```
-bundle exec jekyll serve --config _config.yml,_config.local.yml
-```
-In this case, we can add this to `_config.local.yml` to achieve the same result.
-```
-baseurl=""
-```
+If your CSS or assets don't render, or your build fails because it can't find certain resources, your URL paths are probably the problem.
 
 ## Conclusion
 
