@@ -5,7 +5,7 @@ Before I forget, here are the steps to run the site locally. If you haven't yet,
 ```
 bundle install
 ```
-Then, to deploy to [http://localhost:4000](http://localhost:4000), run this command. Because of a folder path difference between local and GitHub Pages deployment, we override the variables in `_config.local.yml`.
+Then, to deploy to [http://localhost:4000](http://localhost:4000), run this command. Because of a folder path difference between local and GitHub Pages deployment, we override the `baseurl` field in our command.
 ```
-bundle exec jekyll serve --config _config.yml,_config.local.yml
+bundle exec jekyll serve --baseurl=""
 ```
